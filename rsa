@@ -5,7 +5,7 @@ from sys import argv
 wiht open(argv[1]) as a:
     for line in a:
         numb = int(line)
-        print('{:d}='.format(num), end='')
+        print('{:d}='.format(numb), end='')
 
         if numb % 2 == 2:
             print('{}*2'.format(numb//2))
