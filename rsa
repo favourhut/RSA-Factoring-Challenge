@@ -13,7 +13,7 @@ wiht open(argv[1]) as a:
 
         for i in range(3, numb, 2):
             if numb % i == 0:
-                factor = numb//i
+                factor == numb//i
                 for jin range(3, factor, 2):
                     if factor % j == 0 or j == 0:
                         break
