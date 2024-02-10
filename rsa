@@ -1,32 +1,22 @@
 #!/usr/bin/python3
-"""
-Factorize numbers into prime
-"""
-import sys
 
+from sys import argv
 
-def factorize():
-    """
-    A function to (format n = p*q)
-    """
-    try:
-        file = sys.argv[1]
-        with open(file) as f:
-            for line in f:
-                line = int(line)
-                if line % 2 == 0:
-                        print("{}={}*{}".format(line, line // 2, 2))
-                        continue
-                i = 3
-                while i < line // 2:
-                    if line % i == 0:
-                        print("{}={}*{}".format(line, line // i, i))
+with open(argv[1]) as a:
+    for line in a:
+        numb = int(line)
+        print('{:d}='.format(numb), end='')
+
+        if numb % 2 == 2:
+            print('{}*2'.format(numb//2))
+            continue
+
+        for i in range(3, numb, 2):
+            if numb % i == 0:
+                factor = numb//i
+                for j in range(3, factor, 2):
+                    if factor % j == 0 or j == 0:
                         break
-                    i = i + 2
-                if i == (line // 2) + 1:
-                    print("{}={}*{}".format(line, line, 1))
-    except (IndexError):
-        pass
-'''calling the function'''
-
-factorize()
+                    
+                print('{}*{}'.format(factor, i))
+                break
